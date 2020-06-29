@@ -12,5 +12,16 @@ export default {
       id: 3,
       choose_type: 'Je suis professeur',
     }
-  }
-};
+  },
+  menu: {
+    title: {
+      home: 'Acceuil',
+      path:'Parcours',
+      library: 'Bibliotheque',
+      messages: 'Messagerie',
+      stats: 'Statistiques',
+      rewards: 'Trophees',
+      help: 'Aide',
+    }
+  },
+}

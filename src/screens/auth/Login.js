@@ -1,8 +1,15 @@
 import * as React from "react";
 import { View, StyleSheet } from "react-native";
 
-const Login = () => {
-  return <View></View>;
+import { Button } from 'react-native-elements';
+
+const Login = ({ navigation }) => {
+  return (
+      <Button
+          title="Back to home"
+          onPress={() => navigation.popToTop()}
+        />
+  );
 };
 
 const styles = StyleSheet.create({

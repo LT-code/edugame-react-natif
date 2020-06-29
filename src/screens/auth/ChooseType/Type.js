@@ -6,32 +6,21 @@ import {
   Text,
   TouchableOpacity
 } from "react-native";
-import {} from "react-native-elements";
-import Strings from "../../contants/Strings/";
 
-function coucou() {
-  alert("coucou");
-}
-
-function Item(props) {
+const Type = ({ user, navigation }) => {
   return (
     <View style={styles.itemContainer}>
       <TouchableOpacity
         activeOpacity={0.6}
         style={styles.item}
-        onPress={coucou}
+        onPress={() => navigation.navigate("Login")}
       >
-        <Text style={styles.title}>{props.user.choose_type}</Text>
+        <Text style={styles.title}>{user.choose_type}</Text>
       </TouchableOpacity>
     </View>
   );
-}
-
-export default () => {
-  return Object.keys(Strings.user).map(key => (
-    <Item key={Strings.user[key].id} user={Strings.user[key]} />
-  ));
 };
+export default Type;
 
 const styles = StyleSheet.create({
   item: {
