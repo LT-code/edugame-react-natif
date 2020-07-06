@@ -3,10 +3,13 @@ import * as React from "react";
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Text } from "react-native";
 
-import Menu from "./src/screens/Menu/";
+import Menu from "./src/screens/Menu";
 import Login from "./src/screens/auth/Login";
 import ChooseType from "./src/screens/auth/ChooseType";
+
+import Strings from "./src/contants/Strings";
 
 const Stack = createStackNavigator();
 
@@ -17,17 +20,17 @@ const linking = {
 export default function App() {
   return (
     <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
-      <Stack.Navigator initialRouteName="Menu">
+      <Stack.Navigator initialRouteName={Strings.navigation.menu.title}>
         <Stack.Screen
-          name="Menu"
+          name={Strings.navigation.menu.title}
           component={Menu}
         />
 
         <Stack.Screen
-          name="Login"
+          name={Strings.navigation.login.title}
           component={Login}
           options={{
-            title: "Login",
+            title: Strings.navigation.login.title,
             animationTypeForReplace: "push"
           }}
           screenOptions={{
@@ -44,10 +47,10 @@ export default function App() {
         />
 
         <Stack.Screen
-          name="ChooseType"
+          name={Strings.navigation.chooseType.title}
           component={ChooseType}
           options={{
-            title: "Choose type",
+            title: Strings.navigation.chooseType.title,
             animationTypeForReplace: "pop"
           }}
         />

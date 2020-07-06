@@ -12,8 +12,10 @@ import Type from "./Type";
 
 
 const ChooseType = ({ navigation }) => {
-  return Object.keys(Strings.user).map(key => (
-    <Type key={Strings.user[key].id} navigation={navigation} user={Strings.user[key]} />
+  const listType = Strings.screens.choose_type;
+
+  return Object.keys(listType).map(key => (
+    <Type key={listType[key].id} navigation={navigation} user={listType[key]} />
   ));
 };
 export default ChooseType;

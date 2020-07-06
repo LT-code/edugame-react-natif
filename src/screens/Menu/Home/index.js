@@ -1,24 +1,60 @@
 import * as React from "react";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { StyleSheet } from "react-native";
+import {
+  ScrollView,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  Alert
+} from "react-native";
+import { Card, Image } from "react-native-elements";
 
-import Login from "../../auth/Login";
-import ChooseType from "../../auth/ChooseType";
+const Home = () => {
+  const data = [
+    {
+      name: "toto",
+      level: 9,
+      avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg"
+    },
+    {
+      name: "toto",
+      level: 9,
+      avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg"
+    },
+    {
+      name: "toto",
+      level: 9,
+      avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg"
+    }
+  ];
 
-import { Text } from "react-native";
-import { DrawerActions } from "@react-navigation/native";
-
-const Drawer = createDrawerNavigator();
-
-const Home =  ({ navigation }) => {
   return (
-    <Text>Home</Text>
+    <ScrollView style={styles.container}>
+      {data.map((user, i) => {
+        return (
+          <Card style={styles.card} key={i}>
+            <Image
+              style={styles.image}
+              resizeMode="cover"
+              source={{ uri: user.avatar }}
+            />
+            <Text style={styles.name}>{user.name}</Text>
+          </Card>
+        );
+      })}
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  leftIcon: {
-    padding: 10
+  container: {
+    flexDirection: "row",
+  },
+  card: {
+    flexWrap: 'wrap'
+  },
+  image: {
+    height: 20
   }
 });
 

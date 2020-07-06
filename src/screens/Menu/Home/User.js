@@ -1,11 +1,14 @@
 import * as React from 'react';
 import { Platform, StyleSheet, Text, View, Alert } from 'react-native';
+import { Card } from 'react-native-elements';
 
-const Messages = () => {
+const User = () => {
   return (
+    <Card>
       <View>
         <Text>Welcome to EduGame!</Text>
       </View>
+    </Card>
   );
 };
 
@@ -15,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Messages;
+export default User;

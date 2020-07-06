@@ -1,27 +1,57 @@
 export default {
-  user: {
-    student: {
-      id: 1,
-      choose_type: 'Je suis un élève',
+  navigation: {
+    menu: {
+      title: "EduGame",
+      child: {
+        home: "Acceuil",
+        path: "Parcours",
+        library: "Bibliotheque",
+        messages: "Messagerie",
+        stats: "Statistiques",
+        rewards: "Trophees",
+        help: "Aide",
+        disconnect: "Se deconnecter"
+      }
     },
-    parent: {
-      id: 2,
-      choose_type: 'Je suis parent',
+    login: {
+      title: "Login"
     },
-    professor: {
-      id: 3,
-      choose_type: 'Je suis professeur',
+    chooseType: {
+      title: "Choose type"
     }
   },
-  menu: {
-    title: {
-      home: 'Acceuil',
-      path:'Parcours',
-      library: 'Bibliotheque',
-      messages: 'Messagerie',
-      stats: 'Statistiques',
-      rewards: 'Trophees',
-      help: 'Aide',
+  screens: {
+    choose_type: {
+      student: {
+        id: 1,
+        choose_type: "Je suis un élève"
+      },
+      parent: {
+        id: 2,
+        choose_type: "Je suis parent"
+      },
+      professor: {
+        id: 3,
+        choose_type: "Je suis professeur"
+      }
+    },
+    login: {
+      input: {
+        email: "Email",
+        password: "Password",
+        password_error: "ERROR PASSWORD",
+      },
+      button: {
+        login: "Login"
+      }
     }
   },
-}
+  alert: {
+    ok: "OK",
+    cancel: "Annuler",
+    disconnect: {
+      title: "Se deconnecter",
+      question: "Voulez vous vous deconnecter ?"
+    }
+  }
+};
