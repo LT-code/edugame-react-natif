@@ -44,6 +44,11 @@ export default {
       button: {
         login: "Login"
       }
+    },
+    home: {
+      text: {
+         level: "niv.",
+      }
     }
   },
   alert: {

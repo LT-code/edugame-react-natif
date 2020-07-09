@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Icon } from "react-native-elements";
-import Alert from "../../compontents/Alert";
+import { StyleSheet } from "react-native";
+import Alert from "../../compontents/AlertOk";
 
 import {
   DrawerContentScrollView,
@@ -12,9 +13,10 @@ import Strings from "../../contants/Strings/";
 
 const CustomDrawerContent = props => {
   return (
-    <DrawerContentScrollView {...props}>
-      <DrawerItemList {...props} />
+    <DrawerContentScrollView style={styles.container} {...props}>
+      <DrawerItemList style={styles.container} {...props} />
       <DrawerItem
+        style={styles.disconnect}
         label={Strings.navigation.menu.child.disconnect}
         icon={({ focused, color, size }) => (
           <Icon name="exit-to-app" color={color} size={size} />
@@ -22,24 +24,21 @@ const CustomDrawerContent = props => {
         onPress={() =>
           Alert(
             Strings.alert.disconnect.title,
-            Strings.alert.disconnect.question,
-            [
-              {
-                text: Strings.alert.cancel,
-                style: "cancel"
-              },
-              {
-                text: Strings.alert.ok,
-                onPress: () =>
-                  props.navigation.replace(Strings.navigation.chooseType.title)
-              }
-            ],
-            { cancelable: false }
+            Strings.alert.disconnect.question
           )
         }
       />
     </DrawerContentScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    height: "100%"
+  },
+  disconnect: {
+    marginTop: "auto"
+  }
+});
 
 export default CustomDrawerContent;
