@@ -13,8 +13,8 @@ import Strings from "../../contants/Strings/";
 
 const CustomDrawerContent = props => {
   return (
-    <DrawerContentScrollView style={styles.container} {...props}>
-      <DrawerItemList style={styles.container} {...props} />
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
       <DrawerItem
         style={styles.disconnect}
         label={Strings.navigation.menu.child.disconnect}
@@ -34,7 +34,7 @@ const CustomDrawerContent = props => {
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%"
+    height: "90%"
   },
   disconnect: {
     marginTop: "auto"

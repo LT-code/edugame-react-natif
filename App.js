@@ -10,7 +10,7 @@ import {
   StyleSheet,
   Dimensions
 } from "react-native";
-import { Icon, Header } from "react-native-elements";
+import { Icon, Badge, Header } from "react-native-elements";
 import { DrawerActions } from "@react-navigation/native";
 
 import Menu from "./src/screens/Menu";
@@ -52,6 +52,12 @@ export default function App() {
                   type="material-community"
                   size={25}
                 />
+                <Badge
+                  style={styles.iconBadge}
+                  status="error"
+                  containerStyle={{ position: "absolute", top: -4, right: 7 }}
+                  value={1}
+                />
               </TouchableOpacity>
             )
           })}
@@ -72,8 +78,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   headerIcon: {
-    marginRight: 5,
-    marginLeft: 5,
+    marginRight: 15,
+    marginLeft: 10,
     textAlign: "center"
   },
   spaceView: {

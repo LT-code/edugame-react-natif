@@ -69,8 +69,7 @@ const Menu = ({ navigation }) => {
       initialRouteName={Strings.navigation.menu.child.home}
       openByDefault
       drawerType={isLargeScreen ? "permanent" : "back"}
-      drawerContent={props => <CustomDrawerContent {...props} />}
-      //drawerStyle={isLargeScreen ? null : { width: '100%' }}
+      drawerContent={props => <CustomDrawerContent style={{height: "100%"}} {...props} />}
     >
       <Drawer.Screen
         name={Strings.navigation.menu.child.home}
@@ -146,8 +145,8 @@ const Menu = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   headerIcon: {
-    marginRight: 5,
-    marginLeft: 5,
+    marginRight: 10,
+    marginLeft: 10,
     textAlign: "center"
   }
 });

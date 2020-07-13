@@ -4,12 +4,12 @@ import { Card, Image } from "react-native-elements";
 import TextString from "../../../compontents/form/TextString";
 
 const User = ({ user }) => {
+  console.log(user.purcentage + "%");
   return (
     <Card style={styles.card}>
       <View style={styles.levelBar}>
         <View
-          width={user.purcentage + "%"}
-          style={styles.levelBarPurcentage}
+          style={[styles.levelBarPurcentage, { width: user.purcentage + "%" }]}
         ></View>
       </View>
 
@@ -28,7 +28,7 @@ const User = ({ user }) => {
   );
 };
 
-const styles = StyleSheet.create({
+let styles = StyleSheet.create({
   levelBarPurcentage: {
     height: Platform.select({
       ios: 6,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   cardText: {
     flexDirection: "row",
-    paddingTop: 5,
+    paddingTop: 5
   },
   levelText: {
     marginLeft: "auto"
