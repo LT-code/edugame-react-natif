@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import AppContext from "../../compontents/AppContext";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { View, Dimensions, StyleSheet } from "react-native";
@@ -22,28 +22,12 @@ import { DrawerActions } from "@react-navigation/native";
 const Drawer = createDrawerNavigator();
 
 const Menu = ({ navigation }) => {
-  //===========================================
-  // desktop menu handler
-  //===========================================
-  let isLargeScreen = Dimensions.get("window").width >= 768;
-
-  const [dimensions, setDimensions] = useState({ window });
-
-  const onChange = ({ window }) => {
-    setDimensions({ window });
-  };
-
-  useEffect(() => {
-    Dimensions.addEventListener("change", onChange);
-    return () => {
-      Dimensions.removeEventListener("change", onChange);
-    };
-  });
+  const myContext = useContext(AppContext);
 
   //===========================================
   // Burguer menu Icon
   //===========================================
-  if (!isLargeScreen)
+  if (!myContext.isLargeScreen)
     navigation.setOptions({
       headerLeft: () => (
         <TouchableOpacity
@@ -69,8 +53,10 @@ const Menu = ({ navigation }) => {
       }}
       initialRouteName={Strings.navigation.menu.child.home}
       openByDefault
-      drawerType={isLargeScreen ? "permanent" : "back"}
-      drawerContent={props => <CustomDrawerContent style={{height: "100%"}} {...props} />}
+      drawerType={myContext.isLargeScreen ? "permanent" : "back"}
+      drawerContent={props => (
+        <CustomDrawerContent style={{ height: "100%" }} {...props} />
+      )}
     >
       <Drawer.Screen
         name={Strings.navigation.menu.child.home}

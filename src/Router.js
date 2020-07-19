@@ -20,14 +20,19 @@ const linking = {};
 
 export default function App() {
   const myContext = useContext(AppContext);
-
+  
+  // linking={linking}
   return (
-    <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
+    <NavigationContainer  fallback={<Text>Loading...</Text>}>
       <Stack.Navigator
         screenOptions={{
           gestureEnabled: true
         }}
-        initialRouteName={Strings.navigation.menu.title}
+        initialRouteName={
+          myContext.user.logged
+            ? Strings.navigation.menu.title
+            : Strings.navigation.chooseType.title
+        }
       >
         {myContext.user.logged && (
           <Stack.Screen
