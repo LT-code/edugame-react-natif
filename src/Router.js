@@ -9,7 +9,7 @@ import { Icon, Badge, Header } from "react-native-elements";
 import { DrawerActions } from "@react-navigation/native";
 
 import Menu from "./screens/Menu";
-import Login from "./screens/auth/Login";
+import Login from "./screens/auth/Login/";
 import ChooseType from "./screens/auth/ChooseType";
 
 import Strings from "./contants/Strings";
