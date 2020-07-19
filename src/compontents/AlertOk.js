@@ -4,7 +4,7 @@ import { Platform, Alert } from "react-native";
 
 import Strings from "../contants/Strings/";
 
-const phone = (title, question) => {
+const phone = (title, question, callback) => {
   Alert.alert(
     title,
     question,
@@ -15,23 +15,25 @@ const phone = (title, question) => {
       },
       {
         text: Strings.alert.ok,
-        onPress: () =>
-          props.navigation.replace(Strings.navigation.chooseType.title)
+        onPress: () => callback()
       }
     ],
     { cancelable: false }
   );
 };
 
-const web = (title, question) => {};
+const web = (title, question, callback) => {
+  const res = window.confirm(`${title}\n${question}`);
+  if (res) callback();
+};
 
-const alert = (title, question) => {
+const AlertOk = (title, question, callback) => {
   Platform.select({
-    android: phone(title, question),
-    web: web(title, question)
+    android: phone(title, question, callback),
+    web: web(title, question, callback)
   });
 };
 
-export default (title, question) => {
-  alert(title, question);
+export default (title, question, callback) => {
+  AlertOk(title, question, callback);
 };

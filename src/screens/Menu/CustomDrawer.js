@@ -12,6 +12,10 @@ import {
 import Strings from "../../contants/Strings/";
 
 const CustomDrawerContent = props => {
+  const popupPressed = () => {
+    props.navigation.replace(Strings.navigation.chooseType.title);
+  };
+
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
@@ -24,7 +28,8 @@ const CustomDrawerContent = props => {
         onPress={() =>
           Alert(
             Strings.alert.disconnect.title,
-            Strings.alert.disconnect.question
+            Strings.alert.disconnect.question,
+            popupPressed
           )
         }
       />

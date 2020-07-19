@@ -3,8 +3,8 @@
 ## Starting project
 
 ```bash
-**$>** yarn install 
-**$>** yarn web
+$> yarn install 
+$> yarn web
 ```
 
 ## Mobile App display 
