@@ -42,7 +42,9 @@ export default {
         password_error: "ERROR PASSWORD",
       },
       button: {
-        login: "Login"
+        login: "LOGIN",
+        signup: "Signup",
+        forgot_password: "Forgot Password ?",
       }
     },
     home: {

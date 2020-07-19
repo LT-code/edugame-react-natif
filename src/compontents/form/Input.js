@@ -1,7 +1,22 @@
 import * as React from "react";
-import { Input, Icon } from "react-native-elements";
+import { Icon } from "react-native-elements";
+import { View, StyleSheet, Text, TouchableOpacity, TextInput } from "react-native";
 
 import Strings from "../../contants/Strings/";
+
+const styles = StyleSheet.create({
+  input: {
+    width: "100%",
+    borderRadius: 25,
+    height: 50,
+    marginBottom: 20,
+    justifyContent: "center",
+    padding: 20
+  },
+  inputText:{
+    height:50,
+  }
+});
 
 export default props => {
   const input = React.createRef();
@@ -11,13 +26,18 @@ export default props => {
   //  input.focus();
 
   return (
-    <Input
-      ref={input}
-      placeholder={Strings.screens[props.screen].input[props.placeholder]}
-      errorStyle={{ color: props.errorColor ? props.errorColor : "red" }}
-      errorMessage={Strings.screens[props.screen].input[props.errorMessage]}
-      leftIcon={props.icon ? <Icon name={(props.icon)} size={24} color="black" /> : null}
-      type={props.type}
-    />
+    <View style={[styles.input, props.style]}>
+      <TextInput
+        style={styles.inputText}
+        value={props.value}
+        onChangeText={props.onChangeText}
+        ref={input}
+        placeholder={Strings.screens[props.screen].input[props.placeholder]}
+        placeholderTextColor={props.placeholderTextColor}
+        errorStyle={{ color: props.errorColor ? props.errorColor : "red" }}
+        errorMessage={Strings.screens[props.screen].input[props.errorMessage]}
+        secureTextEntry={props.secureTextEntry}
+      />
+    </View>
   );
 };

@@ -1,4 +1,5 @@
-import React, { useLayoutEffect, useState, useEffect } from "react";
+import React, { useLayoutEffect, useContext, useState, useEffect } from "react";
+import AppContext from "../../compontents/AppContext";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { View, Dimensions, StyleSheet } from "react-native";
 
